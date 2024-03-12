@@ -14,8 +14,8 @@
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
-                    <!-- <Button>🗑️</Button>
-                    <Button>{isDone ?  "↩️" :  "✅"}</Button> -->
+                    <Button>🗑️</Button>
+                    <Button>{isDone ?  "↩️" :  "✅"}</Button>
                 </div>
             </li>
         </ul>
