@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+/* HeaderWrap */
+.title {
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* InputBox */
+.inputBox {background-color: #fff; border:2px solid #6a6966;}
+.inputBox .topBox {display:flex; padding:7px 0 7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
+.inputBox .topBox .btn {margin:0 2px; display:block; width:18px; height:18px; border-radius:50%; border:1px solid #92776c;}
+.inputBox .topBox .redOne {background-color:#f94d3f;}
+.inputBox .topBox .yellowOne {background-color:#f7d08e;}
+.inputBox .bodyBox {padding:15px;}
+.inputBox .bodyBox .inputBoxTitle {display:flex; margin-bottom:20px;}
+.inputBox .bodyBox .inputBoxTitle .inputTitle {border-bottom:1px solid #6a6966; width:100%;  padding-left:10px; font-size:20px; padding-bottom:3px;}
+.inputBox .bodyBox .inputBoxContent {display: flex;}
+.inputBox .bodyBox .inputBoxContent .inputTextArea {resize:none; background-color:#eee; width:100%; height:100px; border-radius:10px; padding:5px 10px; font-size:15px;}
+.inputBox .btnBox {display:flex; justify-content: right; padding:10px;}
+.inputBox .btnBox button {border:1px solid #6a6966; height:30px; width:30px; background: #eee}
+.inputBox .btnBox button:hover {cursor:pointer; transform:scale(1.2);}
+.inputBox .bodyBox .inputBoxTitle .mainTitle,
+.inputBox .bodyBox .inputBoxContent .miniTitle {font-size:20px; width:95px; letter-spacing:1px;}
+.inputBox .bodyBox .inputBoxTitle .inputTitle:focus,
+.inputBox .bodyBox .inputBoxContent .inputTextArea:focus {outline: none;}
+
+/* DetailBox */
+
+/* DoneBox */
+
+
+
+/* WorkBox */
