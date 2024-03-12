@@ -8,7 +8,7 @@ figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, su
 textarea {border-radius: 0; resize: none; }
 sup {vertical-align: super;  font-size: smaller;}
 html, body {width: 100%; height: auto; min-height: 100%; font-family: 'NanumSquare', sans-serif; font-size: 1em; -webkit-text-size-adjust: none;}
-body {overflow-x: hidden;}
+/* body {overflow-x: hidden;} */
 h1, h2, h3, h4, h5, h6, strong, em {font-weight: bold; color: #4f5254;}
 img, video {display: block; width: 100%; height: auto; vertical-align: top;}
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, main, section {display: block;}

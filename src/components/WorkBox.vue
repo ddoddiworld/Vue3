@@ -1,21 +1,41 @@
 <template>
     <section class="workBox">
-        <h2 class="mainTitle">{isDone ? "Done" : "Working"}</h2>
-
+        <h2 class="mainTitle">Working</h2>
         <ul class="listWrap">
-            <li class="list">
+            <li v-for="todo in $store.state.todoList" :key="todo.id" class="list">
                 <div class="topBox">
                     <span class="btn redOne"></span>
                     <span class="btn yellowOne"></span>
                 </div>
                 <div class="listContent poor">
-                    <p class="conTitle">제목입니당 아마도요</p>
-                    <p class="conContent">내용용</p>
+                    <p class="conTitle">{{ todo.title }}</p>
+                    <p class="conContent">{{ todo.body }}</p>
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
                     <Button>🗑️</Button>
-                    <Button>{isDone ?  "↩️" :  "✅"}</Button>
+                    <Button>✅</Button>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="workBox">
+        <h2 class="mainTitle">Done</h2>
+        <ul class="listWrap">
+            <li v-for="todo in $store.state.todoList" :key="todo.id" class="list">
+                <div class="topBox">
+                    <span class="btn redOne"></span>
+                    <span class="btn yellowOne"></span>
+                </div>
+                <div class="listContent poor">
+                    <p class="conTitle">{{ todo.title }}</p>
+                    <p class="conContent">{{ todo.body }}</p>
+                </div>
+                <div class="btnBox">
+                    <Button>🔎</Button>
+                    <Button>🗑️</Button>
+                    <Button>↩️</Button>
                 </div>
             </li>
         </ul>
@@ -29,5 +49,5 @@ export default {
 </script>
 
 <style lang="css">
-    @import "../styles/style.css";
+@import "../styles/style.css";
 </style>

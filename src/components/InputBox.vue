@@ -8,26 +8,61 @@
         <div class="bodyBox">
             <div class="inputBoxTitle">
                 <p class="mainTitle roboto">Title</p>
-                <input type="text" class="inputTitle poor"  placeholder="제목을 입력해 주세요.">
+                <input v-model="title" type="text" class="inputTitle poor" placeholder="제목을 입력해 주세요.">
             </div>
             <div class="inputBoxContent">
                 <p class="miniTitle roboto">Content</p>
-                <textarea class="inputTextArea poor" placeholder="내용을 입력해 주세요."></textarea>
+                <textarea v-model="content" class="inputTextArea poor" placeholder="내용을 입력해 주세요."></textarea>
             </div>
         </div>
 
         <div class="btnBox">
-            <button>
-                +
-            </button>
+            <button @click="onSubmitHandler()">+</button>
         </div>
     </section>
 </template>
 
 <script>
+import { ref } from 'vue';
+import store from "@/store/store";
+
 export default {
     name: 'InPutBox',
-}
+    
+    setup(){
+        // title 값
+        const title = ref('');
+        // content 값
+        const content = ref('');
+
+        // todo 추가 버튼
+        const onSubmitHandler = () => {
+            if (!title.value || !content.value) {
+                alert("앗! 제목과 내용을 모두 입력해 주세요!");
+                return false;
+            } else {
+                const newTodo = {
+                    id: Math.random().toString(36).substring(2, 16),
+                    title: title.value,
+                    content: content.value,
+                    isDone: false,
+                };
+
+                console.log(newTodo);
+                store.commit("addTodo", newTodo);
+                
+                title.value = '';
+                content.value = '';
+            }
+        }
+
+        return {
+            title,
+            content,
+            onSubmitHandler,
+        };
+    },
+};
 </script>
 
 <style lang="css">
