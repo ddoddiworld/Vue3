@@ -43,7 +43,11 @@
 .detailBox .topBox {display:flex; align-items: center; padding:7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
 .detailBox .topBox .todoIdInfo {margin-left: auto; color:#555;}
 .detailBox .listContent {padding: 20px; background-color: #fff;}
-.detailBox .listContent .conTitle {min-height:30px; font-size:25px; margin-bottom:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:flex;align-items:center;}
+.detailBox .listContent .conWrap {display: flex; align-items: center; margin-bottom: 25px;}
+.detailBox .listContent .conStatus {font-size: 13px; border-radius:30px; padding: 7px 13px; margin-right: 10px; color:#555;}
+.detailBox .listContent .conStatus.statusW {background-color: #ffe26e;}
+.detailBox .listContent .conStatus.statusD {background-color: #129f74; color: #fff;}
+.detailBox .listContent .conTitle {font-size:26px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
 .detailBox .listContent .conContent {background-color:#eee; border-radius:10px; padding:10px 12px; overflow:hidden; font-size:18px; min-height: 100px;}
 .detailBox .btnBox {display:flex; justify-content: right; padding: 10px;}
 .detailBox .btnBox button {border:1px solid #6a6966; height:30px; width:30px; margin-right:8px; background: #eee;}

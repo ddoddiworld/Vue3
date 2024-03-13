@@ -81,7 +81,7 @@ export default {
         })
 
         /**
-         * filteredWorkingTodos
+         * * filteredWorkingTodos
          * @description 진행 중인 todo 리스트들의 상태 변화를 감지해서 실시간 반영 할 수 있도록 함 (computed)
          */
         const filteredWorkingTodos = computed(() =>
@@ -89,7 +89,7 @@ export default {
         );
 
         /**
-         * filteredDoneTodos
+         * * filteredDoneTodos
          * @description 완료된 todo 리스트들의 상태 변화를 감지해서 실시간 반영 할 수 있도록 함 (computed)
          */
         const filteredDoneTodos = computed(() =>
@@ -97,19 +97,27 @@ export default {
         );
 
         /**
-         * removeTodoHandler
+         * * removeTodoHandler
          * @description todo 제거
          */
         const removeTodoHandler = (todo) => {
-            store.commit("removeTodo", todo.id);
+            if (confirm("[❓] 삭제 할까요?")) {
+                store.commit("removeTodo", todo.id);
+            } else {
+                return false;
+            }
         };
 
         /**
-         * statusHandler
+         * * statusHandler
          * @description todo 상태 변경
          */
         const statusHandler = (todo) => {
-            store.commit("switchTodo", todo.id);
+            if (confirm("[❓] 상태를 변경할까요?")) {
+                store.commit("switchTodo", todo.id);
+            } else {
+                return false;
+            }
         };
 
         return {

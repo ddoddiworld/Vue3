@@ -5,9 +5,13 @@
             <span class="btn yellowOne"></span>
             <span class=todoIdInfo>{{ todo.id }}</span>
         </div>
-        <div class="listContent poor">
-            <p class="conTitle">{{ todo.title }}</p>
-            <p class="conContent">{{ todo.body }}</p>
+        <div class="listContent">
+            <div class="conWrap">
+                <p class="conStatus statusW" v-if="todo.isDone == false">Working</p>
+                <p class="conStatus statusD" v-if="todo.isDone == true">Done</p>
+                <p class="conTitle poor">{{ todo.title }}</p>
+            </div>
+            <p class="conContent poor">{{ todo.body }}</p>
         </div>
         <div class="btnBox">
             <Button @click="$router.push( `/`)">🏠</Button>
@@ -29,8 +33,10 @@ export default {
         
         onMounted(() => {
             const todoId = route.params.id;
-            console.log(`todo id 잘 가져왔니? ${todoId}`)
+
             todo.value = store.state.todoList.find(item => item.id === todoId);
+
+
         });
 
         return {
