@@ -1,4 +1,5 @@
 <template>
+    <!-- todo 진행 중 -->
     <section class="workBox">
         <h2 class="mainTitle">Working</h2>
         <ul class="listWrap">
@@ -10,7 +11,6 @@
                 <div class="listContent poor">
                     <p class="conTitle">{{ todo.title }}</p>
                     <p class="conContent">{{ todo.body }}</p>
-                    <P>{{ todo.isDone }}</P>
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
@@ -21,6 +21,7 @@
         </ul>
     </section>
 
+    <!-- todo 완료 -->
     <section class="workBox">
         <h2 class="mainTitle">Done</h2>
         <ul class="listWrap">
@@ -32,7 +33,6 @@
                 <div class="listContent poor">
                     <p class="conTitle">{{ todo.title }}</p>
                     <p class="conContent">{{ todo.body }}</p>
-                    <P>{{ todo.isDone }}</P>
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
@@ -80,18 +80,34 @@ export default {
             console.log(store.state.todoList);
         })
 
+        /**
+         * filteredWorkingTodos
+         * @description 진행 중인 todo 리스트들의 상태 변화를 감지해서 실시간 반영 할 수 있도록 함 (computed)
+         */
         const filteredWorkingTodos = computed(() =>
             store.state.todoList.filter((item) => !item.isDone)
         );
 
+        /**
+         * filteredDoneTodos
+         * @description 완료된 todo 리스트들의 상태 변화를 감지해서 실시간 반영 할 수 있도록 함 (computed)
+         */
         const filteredDoneTodos = computed(() =>
             store.state.todoList.filter((item) => item.isDone)
         );
 
+        /**
+         * removeTodoHandler
+         * @description todo 제거
+         */
         const removeTodoHandler = (todo) => {
             store.commit("removeTodo", todo.id);
         };
 
+        /**
+         * statusHandler
+         * @description todo 상태 변경
+         */
         const statusHandler = (todo) => {
             store.commit("switchTodo", todo.id);
         };
