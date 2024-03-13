@@ -38,7 +38,7 @@ export default {
         // todo 추가 버튼
         const onSubmitHandler = () => {
             if (!title.value || !body.value) {
-                alert("앗! 제목과 내용을 모두 입력해 주세요!");
+                alert("앗! 제목과 내용을 모두 입력해 주세요🤔");
                 return false;
             } else {
                 const newTodo = {
@@ -48,7 +48,6 @@ export default {
                     isDone: false,
                 };
 
-                console.log(newTodo);
                 store.commit("addTodo", newTodo);
                 
                 title.value = '';

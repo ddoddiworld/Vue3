@@ -17,7 +17,9 @@ const store = createStore({
             },
         ]
     } ,
+
     getters: {},
+
     mutations: {
         // todo 추가
         addTodo(state, newTodo) {
@@ -26,13 +28,13 @@ const store = createStore({
         },
 
         // todo 제거
+        removeTodo() {
+            console.log('작성 중입니다~~');
+        },
 
         // todo 상태 변경
-        switchTodo(state, todoId) {
-            const todo = state.todoList.find(todo => todo.id === todoId);
-            if (todo) {
-                todo.isDone = !todo.isDone;
-            }
+        switchTodo(todo) {
+            todo.isDone = !todo.isDone;
         }
     }
 })
