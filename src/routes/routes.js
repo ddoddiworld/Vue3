@@ -9,7 +9,7 @@ var routes = [
         component: MainPage
     },
     {
-        path: '/dp',
+        path: '/:id',
         component: DetailPage
     }
 ]

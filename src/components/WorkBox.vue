@@ -13,7 +13,7 @@
                     <p class="conContent">{{ todo.body }}</p>
                 </div>
                 <div class="btnBox">
-                    <Button>🔎</Button>
+                    <Button @click="$router.push( `/${todo.id}`)">🔎</Button>
                     <Button @click="removeTodoHandler(todo)">🗑️</Button>
                     <button @click="statusHandler(todo)">✅</button>
                 </div>
@@ -35,7 +35,7 @@
                     <p class="conContent">{{ todo.body }}</p>
                 </div>
                 <div class="btnBox">
-                    <Button>🔎</Button>
+                    <Button @click="$router.push( `/${todo.id}`)">🔎</Button>
                     <Button @click="removeTodoHandler(todo)">🗑️</Button>
                     <button @click="statusHandler(todo)">↩️</button>
                 </div>
@@ -116,7 +116,7 @@ export default {
             statusHandler,
             removeTodoHandler,
             filteredWorkingTodos,
-            filteredDoneTodos
+            filteredDoneTodos,
         }
     }
 }
