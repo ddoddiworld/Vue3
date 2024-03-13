@@ -10,12 +10,12 @@
                 <div class="listContent poor">
                     <p class="conTitle">{{ todo.title }}</p>
                     <p class="conContent">{{ todo.body }}</p>
-                    <P>{{  todo.isDone }}</P>
+                    <P>{{ todo.isDone }}</P>
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
-                    <Button>🗑️</Button>
-                    <button @click="statusHandler()">✅</button>
+                    <Button @click="removeTodoHandler(todo)">🗑️</Button>
+                    <button @click="statusHandler(todo)">✅</button>
                 </div>
             </li>
         </ul>
@@ -32,12 +32,12 @@
                 <div class="listContent poor">
                     <p class="conTitle">{{ todo.title }}</p>
                     <p class="conContent">{{ todo.body }}</p>
-                    <P>{{  todo.isDone }}</P>
+                    <P>{{ todo.isDone }}</P>
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
-                    <Button>🗑️</Button>
-                    <button @click="statusHandler()">↩️</button>
+                    <Button @click="removeTodoHandler(todo)">🗑️</Button>
+                    <button @click="statusHandler(todo)">↩️</button>
                 </div>
             </li>
         </ul>
@@ -60,8 +60,8 @@
                 </div>
                 <div class="btnBox">
                     <Button>🔎</Button>
-                    <Button>🗑️</Button>
-                    <button @click="statusHandler()">{{ todo.isDone ? "↩️" : "✅" }}</button>
+                    <Button @click="removeTodoHandler(todo)">🗑️</Button>
+                    <button @click="statusHandler(todo)">{{ todo.isDone ? "↩️" : "✅" }}</button>
                 </div>
             </li>
         </ul>
@@ -70,37 +70,35 @@
 
 <script>
 import store from '@/store/store';
-import { computed, onMounted, reactive } from 'vue';
+import { computed, onMounted } from 'vue';
 
 export default {
     name: 'WorkBox',
 
     setup() {
-        const state = reactive({
-            arrTodo: store.state.todoList,
-        })
-
         onMounted(() => {
-            console.log(state.arrTodo);
+            console.log(store.state.todoList);
         })
 
         const filteredWorkingTodos = computed(() =>
-            state.arrTodo.filter((item) => !item.isDone)
+            store.state.todoList.filter((item) => !item.isDone)
         );
 
         const filteredDoneTodos = computed(() =>
-            state.arrTodo.filter((item) => item.isDone)
+            store.state.todoList.filter((item) => item.isDone)
         );
 
+        const removeTodoHandler = (todo) => {
+            store.commit("removeTodo", todo.id);
+        };
+
         const statusHandler = (todo) => {
-            //  state.arrTodo 을 돌려서 isDone 값만 출력해보기
-            todo.isDone = !todo.isDone;
-            alert(`눌렀음: ${todo.isDone}`);
-        }
+            store.commit("switchTodo", todo.id);
+        };
 
         return {
-            state,
             statusHandler,
+            removeTodoHandler,
             filteredWorkingTodos,
             filteredDoneTodos
         }

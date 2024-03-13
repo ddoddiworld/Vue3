@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 const store = createStore({
     state: {
-        todoList : [
+        todoList: [
             {
                 id: Math.random().toString(36).substring(2, 16),
                 title: "vuex를 이용한 상태관리 해보기",
@@ -15,8 +15,8 @@ const store = createStore({
                 body: "완료한 내용으로 잘 보이나요?",
                 isDone: true,
             },
-        ]
-    } ,
+        ],
+    },
 
     getters: {},
 
@@ -24,19 +24,21 @@ const store = createStore({
         // todo 추가
         addTodo(state, newTodo) {
             state.todoList.push(newTodo);
-            console.log(store.state.todoList);
         },
 
         // todo 제거
-        removeTodo() {
-            console.log('작성 중입니다~~');
+        removeTodo(state, todoId) {
+            state.todoList = state.todoList.filter((todo) => todo.id !== todoId);
         },
 
         // todo 상태 변경
-        switchTodo(todo) {
-            todo.isDone = !todo.isDone;
-        }
-    }
-})
+        switchTodo(state, todoId) {
+            const todo = state.todoList.find((todo) => todo.id === todoId);
+            if (todo) {
+                todo.isDone = !todo.isDone;
+            }
+        },
+    },
+});
 
 export default store;
