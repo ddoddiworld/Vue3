@@ -32,7 +32,7 @@
 .workBox .listWrap .list .topBox {display:flex; padding:7px 0 7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
 .workBox .listWrap .list .listContent {padding: 15px;}
 .workBox .listWrap .list .listContent .conTitle { min-height:20px; font-size:20px; margin-bottom:15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.workBox .listWrap .list .listContent .conContent {height:100px; max-height:100px; background-color:#eee; border-radius:10px; padding:7px 9px; overflow:hidden;}
+.workBox .listWrap .list .listContent .conContent {height:100px; max-height:100px; background-color:#eee; border-radius:10px; padding:7px 9px; overflow: auto;}
 .workBox .listWrap .list .btnBox {display:flex; justify-content: right; padding: 10px;}
 .workBox .listWrap .list .btnBox button {border:1px solid #6a6966; height:30px; width:30px; margin-right:8px; background: #eee;}
 .workBox .listWrap .list .btnBox button:hover {cursor:pointer; transform:scale(1.2);}
@@ -40,7 +40,7 @@
 
 /* DetailBox */
 .detailBox {background-color: #fff; border:2px solid #6a6966;}
-.detailBox .topBox {display:flex; align-items: center; padding:7px 0 7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
+.detailBox .topBox {display:flex; align-items: center; padding:7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
 .detailBox .topBox .todoIdInfo {margin-left: auto; color:#555;}
 .detailBox .listContent {padding: 20px; background-color: #fff;}
 .detailBox .listContent .conTitle {min-height:30px; font-size:25px; margin-bottom:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:flex;align-items:center;}

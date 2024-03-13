@@ -13,7 +13,7 @@
                     <p class="conContent">{{ todo.body }}</p>
                 </div>
                 <div class="btnBox">
-                    <Button @click="$router.push( `/${todo.id}`)">🔎</Button>
+                    <Button @click="$router.push({ name: 'detail', params: {id: todo.id }})">🔎</Button>
                     <Button @click="removeTodoHandler(todo)">🗑️</Button>
                     <button @click="statusHandler(todo)">✅</button>
                 </div>
@@ -35,7 +35,7 @@
                     <p class="conContent">{{ todo.body }}</p>
                 </div>
                 <div class="btnBox">
-                    <Button @click="$router.push({ path: `/${todo.id}`, params: { id: todo.id }})">🔎</Button>
+                    <Button @click="$router.push({ name: 'detail', params: {id: todo.id }})">🔎</Button>
                     <Button @click="removeTodoHandler(todo)">🗑️</Button>
                     <button @click="statusHandler(todo)">↩️</button>
                 </div>

@@ -6,10 +6,12 @@ import DetailPage from "../views/DetailPage.vue"
 var routes = [
     {
         path: '/',
+        name: 'main',
         component: MainPage
     },
     {
-        path: '/:id',
+        path: '/detail/:id',
+        name: 'detail',
         component: DetailPage
     }
 ]

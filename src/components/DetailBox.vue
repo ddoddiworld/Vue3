@@ -3,11 +3,11 @@
         <div class="topBox">
             <span class="btn redOne"></span>
             <span class="btn yellowOne"></span>
-            <span class=todoIdInfo>{{ filteredTodo.id }}</span>
+            <span class=todoIdInfo>{{ todo.id }}</span>
         </div>
         <div class="listContent poor">
-            <p class="conTitle">{{ filteredTodo.title }}</p>
-            <p class="conContent">{{ filteredTodo.body }}</p>
+            <p class="conTitle">{{ todo.title }}</p>
+            <p class="conContent">{{ todo.body }}</p>
         </div>
         <div class="btnBox">
             <Button @click="$router.push( `/`)">🏠</Button>
@@ -17,28 +17,24 @@
 
 <script>
 import store from '@/store/store';
-import { onMounted, ref, computed } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default {
     name: 'DetailBox',
 
-    setup(props, { route }){
-        const todoId = ref(null);
-
-
+    setup(){
+        const todo = ref({});
+        const route = useRoute();
+        
         onMounted(() => {
-            console.log("???")
-            todoId.value = route.params.id;
-
-            store.dispatch('fetchTodoDetails', todoId.value);
-        });
-
-        const filteredTodo = computed(() => {
-            return store.state.todoList.find((item) => item && item.id === todoId.value);
+            const todoId = route.params.id;
+            console.log(`todo id 잘 가져왔니? ${todoId}`)
+            todo.value = store.state.todoList.find(item => item.id === todoId);
         });
 
         return {
-            filteredTodo,
+            todo
         }
     }
 }
