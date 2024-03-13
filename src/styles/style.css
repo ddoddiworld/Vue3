@@ -39,8 +39,12 @@
 .workBox .listWrap .list .btnBox button:last-child {margin-right: 0;}
 
 /* DetailBox */
-
-
-
-
-
+.detailBox {background-color: #fff; border:2px solid #6a6966;}
+.detailBox .topBox {display:flex; align-items: center; padding:7px 0 7px 5px; border-bottom:2px solid #6a6966; background-color: #c5c5c5;}
+.detailBox .topBox .todoIdInfo {margin-left: auto; color:#555;}
+.detailBox .listContent {padding: 20px; background-color: #fff;}
+.detailBox .listContent .conTitle {min-height:30px; font-size:25px; margin-bottom:20px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; display:flex;align-items:center;}
+.detailBox .listContent .conContent {background-color:#eee; border-radius:10px; padding:10px 12px; overflow:hidden; font-size:18px; min-height: 100px;}
+.detailBox .btnBox {display:flex; justify-content: right; padding: 10px;}
+.detailBox .btnBox button {border:1px solid #6a6966; height:30px; width:30px; margin-right:8px; background: #eee;}
+.detailBox .btnBox button:hover {cursor:pointer; transform:scale(1.2);}

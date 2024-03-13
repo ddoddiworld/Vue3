@@ -1,15 +1,18 @@
 <template>
-    <div>
-        <p>디테일 페이지 입니다.</p>
-    </div>
+    <HeaderWrap />
+    <DetailBox />
 </template>
 
 <script>
+import HeaderWrap from '@/components/HeaderWrap';
+import DetailBox from '@/components/DetailBox';
+
 export default {
-    name: 'DetailPage'
+    name: 'DetailPage',
+
+    components: {
+        HeaderWrap,
+        DetailBox
+    },
 }
 </script>
-
-<style lang="css">
-    
-</style>
