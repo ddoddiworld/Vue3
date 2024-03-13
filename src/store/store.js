@@ -22,14 +22,18 @@ const store = createStore({
         // todo 추가
         addTodo(state, newTodo) {
             state.todoList.push(newTodo);
+            console.log(store.state.todoList);
         },
 
         // todo 제거
-        // removeTodo(state, removeTodo) {
-        //     state.todoList
-        // }
 
         // todo 상태 변경
+        switchTodo(state, todoId) {
+            const todo = state.todoList.find(todo => todo.id === todoId);
+            if (todo) {
+                todo.isDone = !todo.isDone;
+            }
+        }
     }
 })
 
